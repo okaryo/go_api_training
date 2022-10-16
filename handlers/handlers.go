@@ -11,10 +11,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// GET /hello
 func HelloHandler(w http.ResponseWriter, req *http.Request) {
 	io.WriteString(w, "Hello, world!\n")
 }
 
+// POST /article
 func PostArticleHandler(w http.ResponseWriter, req *http.Request) {
 	article := models.Article1
 	jsonData, err := json.Marshal(article)
@@ -26,6 +28,7 @@ func PostArticleHandler(w http.ResponseWriter, req *http.Request) {
 	w.Write(jsonData)
 }
 
+// GET /article/list
 func ArticleListHandler(w http.ResponseWriter, req *http.Request) {
 	queryMap := req.URL.Query()
 
@@ -52,6 +55,7 @@ func ArticleListHandler(w http.ResponseWriter, req *http.Request) {
 	w.Write(jsonData)
 }
 
+// GET /article/:id
 func ArticleDetailHandler(w http.ResponseWriter, req *http.Request) {
 	articleID, err := strconv.Atoi(mux.Vars(req)["id"])
 	if err != nil {
@@ -70,6 +74,7 @@ func ArticleDetailHandler(w http.ResponseWriter, req *http.Request) {
 	w.Write(jsonData)
 }
 
+// POST /article/nice
 func PostNiceHandler(w http.ResponseWriter, req *http.Request) {
 	article := models.Article1
 	jsonData, err := json.Marshal(article)
@@ -81,6 +86,7 @@ func PostNiceHandler(w http.ResponseWriter, req *http.Request) {
 	w.Write(jsonData)
 }
 
+// POST /article/commnet
 func PostCommentHandler(w http.ResponseWriter, req *http.Request) {
 	comment := models.Comment1
 	jsonData, err := json.Marshal(comment)
