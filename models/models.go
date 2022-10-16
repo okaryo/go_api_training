@@ -11,7 +11,7 @@ type Comment struct {
 	CreatedAt time.Time `json:"created_at"`
 }
 
-type ARticle struct {
+type Article struct {
 	ID          int       `json:"article_id"`
 	Title       string    `json:"title"`
 	Contents    string    `json:"contents"`
