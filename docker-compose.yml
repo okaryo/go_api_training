@@ -8,6 +8,8 @@ services:
     volumes:
       - .:/go/src/app
     command: go run main.go
+    depends_on:
+      - mysql
 
   mysql:
     image: mysql:5.7
@@ -24,9 +26,10 @@ services:
         MYSQL_PASSWORD: ${USERPASS}
         TZ: 'Asia/Tokyo'
     ports: 
-        - "3306:3306"
+        - 3306:3306
     volumes:
         - db-volume:/var/lib/mysql
+        - ./createTable.sql:/var/lib/mysql/createTable.sql
 
 volumes:
   db-volume:
