@@ -30,6 +30,7 @@ services:
     volumes:
         - db-volume:/var/lib/mysql
         - ./createTable.sql:/var/lib/mysql/createTable.sql
+        - ./insertData.sql:/var/lib/mysql/insertData.sql
 
 volumes:
   db-volume:
