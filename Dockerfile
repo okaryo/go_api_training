@@ -1,6 +1,6 @@
 FROM golang:1.19-alpine
 
-RUN apk update && apk add git
+RUN apk update && apk add --no-cache alpine-sdk build-base git
 
 COPY ./ /go/src/app
 
