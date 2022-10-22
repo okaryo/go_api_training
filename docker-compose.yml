@@ -7,7 +7,7 @@ services:
       - 8080:8080
     volumes:
       - .:/go/src/app
-    command: go run main.go
+    command: go run main.go DB_USER=docker DB_PASSWORD=docker DB_NAME=sampledb
     depends_on:
       - mysql
 
